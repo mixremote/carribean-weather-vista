@@ -17,9 +17,10 @@ interface WeatherData {
 interface WeatherCardProps {
   data: WeatherData;
   temperatureUnit: 'C' | 'F';
+  onClick: () => void;
 }
 
-const WeatherCard: React.FC<WeatherCardProps> = ({ data, temperatureUnit }) => {
+const WeatherCard: React.FC<WeatherCardProps> = ({ data, temperatureUnit, onClick }) => {
   const convertTemperature = (temp: number) => {
     if (temperatureUnit === 'F') {
       return Math.round((temp * 9/5) + 32);
@@ -28,7 +29,10 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ data, temperatureUnit }) => {
   };
 
   return (
-    <div className="weather-card group hover:scale-105 transition-all duration-300 animate-fade-in">
+    <div 
+      className="weather-card group hover:scale-105 transition-all duration-300 animate-fade-in cursor-pointer"
+      onClick={onClick}
+    >
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3 className="text-xl font-semibold text-gray-800 mb-1">{data.city}</h3>
@@ -70,6 +74,12 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ data, temperatureUnit }) => {
           <p className="text-gray-600">Wind</p>
           <p className="font-semibold text-gray-800">{data.windSpeed} km/h {data.windDirection}</p>
         </div>
+      </div>
+      
+      <div className="mt-4 text-center">
+        <p className="text-xs text-gray-500 group-hover:text-blue-600 transition-colors">
+          Click for 7-day forecast
+        </p>
       </div>
     </div>
   );
