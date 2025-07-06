@@ -9,7 +9,7 @@ const Immigration = () => {
     document.title = 'Dominican Republic Immigration Guide - Visa, Residency & Citizenship Services';
     
     // Update meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
+    const metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement;
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Complete Dominican Republic immigration guide. Get expert help with tourist visas, business visas, temporary residency, pensionado status, and citizenship applications. Professional immigration services for DR relocation.');
     }
@@ -55,18 +55,18 @@ const Immigration = () => {
     };
 
     // Add canonical URL
-    let canonical = document.querySelector('link[rel="canonical"]');
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) {
-      canonical = document.createElement('link');
+      canonical = document.createElement('link') as HTMLLinkElement;
       canonical.rel = 'canonical';
       document.head.appendChild(canonical);
     }
     canonical.href = 'https://dominicanweather.info/immigration';
 
     // Add structured data script
-    let script = document.querySelector('script[type="application/ld+json"][data-page="immigration"]');
+    let script = document.querySelector('script[type="application/ld+json"][data-page="immigration"]') as HTMLScriptElement;
     if (!script) {
-      script = document.createElement('script');
+      script = document.createElement('script') as HTMLScriptElement;
       script.type = 'application/ld+json';
       script.setAttribute('data-page', 'immigration');
       document.head.appendChild(script);

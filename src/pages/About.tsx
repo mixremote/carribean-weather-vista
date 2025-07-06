@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -10,7 +9,7 @@ const About = () => {
     document.title = 'About Dominican Weather - Expert Caribbean Travel & Immigration Services';
     
     // Update meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
+    const metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement;
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Learn about Dominican Weather - your trusted partner for Dominican Republic tourism, real estate investment, and immigration services. 15+ years of Caribbean expertise helping 5000+ clients.');
     }
@@ -103,18 +102,18 @@ const About = () => {
     };
 
     // Add canonical URL
-    let canonical = document.querySelector('link[rel="canonical"]');
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) {
-      canonical = document.createElement('link');
+      canonical = document.createElement('link') as HTMLLinkElement;
       canonical.rel = 'canonical';
       document.head.appendChild(canonical);
     }
     canonical.href = 'https://dominicanweather.info/about';
 
     // Add structured data script
-    let script = document.querySelector('script[type="application/ld+json"][data-page="about"]');
+    let script = document.querySelector('script[type="application/ld+json"][data-page="about"]') as HTMLScriptElement;
     if (!script) {
-      script = document.createElement('script');
+      script = document.createElement('script') as HTMLScriptElement;
       script.type = 'application/ld+json';
       script.setAttribute('data-page', 'about');
       document.head.appendChild(script);
