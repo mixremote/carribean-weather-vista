@@ -1,3 +1,4 @@
+
 User-agent: Googlebot
 Allow: /
 
@@ -12,3 +13,14 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://dominicanweather.info/sitemap.xml
+
+# Block access to sensitive files
+Disallow: /*.json$
+Disallow: /src/
+Disallow: /node_modules/
+
+# Crawl delay for polite crawling
+Crawl-delay: 1
