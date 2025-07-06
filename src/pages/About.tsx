@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -52,9 +53,9 @@ const About = () => {
       "member": [
         {
           "@type": "Person",
-          "name": "Maria Rodriguez",
-          "jobTitle": "Founder & CEO",
-          "description": "15+ years experience in Dominican Republic tourism development and strategy"
+          "name": "Peter Privitera",
+          "jobTitle": "Founder & CTO",
+          "description": "15+ years experience in Technology & Business development"
         },
         {
           "@type": "Person", 
@@ -131,12 +132,12 @@ const About = () => {
 
   const team = [
     {
-      name: 'Maria Rodriguez',
-      role: 'Founder & CEO',
-      experience: '15+ years in Dominican tourism',
-      specialization: 'Tourism Development & Strategy',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616c0763c0a?w=300&h=300&fit=crop&crop=face',
-      alt: 'Maria Rodriguez - Founder and CEO of Dominican Weather, expert in Dominican Republic tourism development with 15+ years experience'
+      name: 'Peter Privitera',
+      role: 'Founder & CTO',
+      experience: '15+ years in Technology & Business development',
+      specialization: 'Chief Technology Officer',
+      image: '/lovable-uploads/0d1cd08e-2046-4ecb-a7da-b51c5b6ecf0f.png',
+      alt: 'Peter Privitera - Founder and CTO of Dominican Weather, expert in Technology & Business development with 15+ years experience'
     },
     {
       name: 'Carlos Fernandez',
