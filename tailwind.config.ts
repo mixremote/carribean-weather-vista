@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,20 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				tropical: {
+					turquoise: '#40E0D0',
+					coral: '#FF7F7F',
+					aqua: '#00CED1',
+					mint: '#98FB98',
+					sunset: '#FFB347'
 				}
+			},
+			backgroundImage: {
+				'tropical-gradient': 'linear-gradient(135deg, #40E0D0 0%, #FF7F7F 100%)',
+				'ocean-gradient': 'linear-gradient(135deg, #00CED1 0%, #40E0D0 50%, #98FB98 100%)',
+				'sunset-gradient': 'linear-gradient(135deg, #FFB347 0%, #FF7F7F 100%)',
+				'card-gradient': 'linear-gradient(135deg, rgba(64, 224, 208, 0.1) 0%, rgba(255, 127, 127, 0.1) 100%)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +98,31 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0px)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.6s ease-out',
+				'float': 'float 3s ease-in-out infinite'
 			}
 		}
 	},

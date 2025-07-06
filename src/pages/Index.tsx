@@ -1,12 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useState } from 'react';
+import Header from '../components/Header';
+import WeatherSection from '../components/WeatherSection';
+import TourismSection from '../components/TourismSection';
+import RealEstateSection from '../components/RealEstateSection';
+import ImmigrationSection from '../components/ImmigrationSection';
+import Footer from '../components/Footer';
 
 const Index = () => {
+  const [temperatureUnit, setTemperatureUnit] = useState<'C' | 'F'>('C');
+
+  const handleTemperatureUnitChange = (unit: 'C' | 'F') => {
+    setTemperatureUnit(unit);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-white">
+      <Header 
+        temperatureUnit={temperatureUnit}
+        onTemperatureUnitChange={handleTemperatureUnitChange}
+      />
+      
+      <main>
+        <WeatherSection temperatureUnit={temperatureUnit} />
+        <TourismSection />
+        <RealEstateSection />
+        <ImmigrationSection />
+      </main>
+      
+      <Footer />
     </div>
   );
 };
