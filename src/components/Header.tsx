@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface HeaderProps {
   temperatureUnit: 'C' | 'F';
@@ -8,15 +9,26 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ temperatureUnit, onTemperatureUnitChange }) => {
-  const [activeTab, setActiveTab] = useState('weather');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
-    { id: 'weather', label: 'Weather' },
-    { id: 'tourism', label: 'Tourism' },
-    { id: 'realestate', label: 'Real Estate' },
-    { id: 'immigration', label: 'Immigration' },
-    { id: 'about', label: 'About' }
+    { id: 'weather', label: 'Weather', path: '/' },
+    { id: 'tourism', label: 'Tourism', path: '/tourism' },
+    { id: 'realestate', label: 'Real Estate', path: '/real-estate' },
+    { id: 'immigration', label: 'Immigration', path: '/immigration' },
+    { id: 'about', label: 'About', path: '/about' }
   ];
+
+  const getActiveTab = () => {
+    const currentPath = location.pathname;
+    const activeItem = navItems.find(item => item.path === currentPath);
+    return activeItem ? activeItem.id : 'weather';
+  };
+
+  const handleNavClick = (path: string) => {
+    navigate(path);
+  };
 
   return (
     <header className="relative">
@@ -28,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({ temperatureUnit, onTemperatureUnitChang
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo and Brand */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate('/')}>
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
                 <div className="text-2xl">🌴</div>
               </div>
@@ -74,13 +86,13 @@ const Header: React.FC<HeaderProps> = ({ temperatureUnit, onTemperatureUnitChang
 
           {/* Navigation */}
           <nav className="mt-6">
-            <div className="flex space-x-1 bg-white/10 backdrop-blur-sm rounded-full p-1">
+            <div className="flex flex-wrap gap-1 bg-white/10 backdrop-blur-sm rounded-full p-1">
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => setActiveTab(item.id)}
-                  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                    activeTab === item.id
+                  onClick={() => handleNavClick(item.path)}
+                  className={`px-4 md:px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                    getActiveTab() === item.id
                       ? 'bg-white text-primary shadow-md'
                       : 'text-white hover:bg-white/20'
                   }`}
