@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -272,8 +271,9 @@ const About = () => {
                       <img 
                         src={member.image} 
                         alt={member.alt}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-top"
                         loading="lazy"
+                        style={{ objectPosition: '50% 20%' }}
                       />
                     </div>
                     <div className="p-6">
