@@ -79,11 +79,11 @@ const WeatherSection: React.FC<WeatherSectionProps> = ({ temperatureUnit }) => {
   return (
     <section className="py-16 bg-gradient-to-br from-blue-50 to-green-50 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cg fill-opacity="0.03"%3E%3Cpolygon fill="%23000" points="50 0 60 40 100 50 60 60 50 100 40 60 0 50 40 40"/%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"%3E%3Cg fill-opacity=\"0.03\"%3E%3Cpolygon fill=\"%23000\" points=\"50 0 60 40 100 50 60 60 50 100 40 60 0 50 40 40\"/%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold bg-tropical-gradient bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent mb-4">
             Weather Across Paradise
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -108,7 +108,7 @@ const WeatherSection: React.FC<WeatherSectionProps> = ({ temperatureUnit }) => {
                 placeholder="Search cities..."
                 className="flex-1 px-6 py-4 outline-none text-gray-700"
               />
-              <button className="bg-tropical-gradient text-white px-8 py-4 hover:opacity-90 transition-opacity">
+              <button className="bg-gradient-to-r from-blue-500 to-green-500 text-white px-8 py-4 hover:opacity-90 transition-opacity">
                 🔍
               </button>
             </div>
